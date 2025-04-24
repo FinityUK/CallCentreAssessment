@@ -17,7 +17,7 @@ const HomePage = async () => {
           <li>Modern React</li>
           <li>Next.js</li>
           <li>Tailwind CSS</li>
-          <li>.NET 6+</li>
+          <li>.NET 8+</li>
           <li>Entity Framework Core</li>
           <li>MediatR, supporting a Vertical Sliced architecture</li>
         </ul>
