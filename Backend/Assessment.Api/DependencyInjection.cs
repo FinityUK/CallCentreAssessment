@@ -22,7 +22,9 @@ public static class DependencyInjection
     /// </summary>
     public static void ConfigureConfiguration(ConfigurationManager config)
     {
-        config.AddEnvironmentVariables();
+        config
+            .AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables();
     }
 
     /// <summary>

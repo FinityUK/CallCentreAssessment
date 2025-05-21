@@ -27,8 +27,8 @@ public static class QueryableExtensions
         {
             ItemsPerPage = paginationParameters.PageSize,
             PageNumber = paginationParameters.Page,
-            Data = await results.ToListAsync().ConfigureAwait(false),
-            TotalResultsCount = await query.CountAsync().ConfigureAwait(false),
+            Data = await results.ToListAsync(),
+            TotalResultsCount = await query.CountAsync(),
         };
 
         paginationResult.TotalPages = (int)Math.Ceiling((decimal)paginationResult.TotalResultsCount / itemsPerPage);

@@ -4,27 +4,20 @@ using Assessment.Application.Users.Queries;
 
 namespace Assessment.Api.Controllers;
 
-public class UserController : BaseApiController
+public class UserController(IMediator mediator) : BaseApiController
 {
-    private readonly IMediator _mediator;
-
-    public UserController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-
     [HttpGet]
     public async Task<PaginatedResult<GetPaginatedUsersQueryRow>> GetPaginatedUsersAsync(
         [FromQuery] GetPaginatedUsersQuery query) =>
-        await _mediator.Send(query);
+        await mediator.Send(query);
     
     [HttpGet("list")]
     public async Task<Result<GetUsersListResult>> GetUsersListAsync(
         [FromQuery] GetUsersListQuery query) =>
-        await _mediator.Send(query);
+        await mediator.Send(query);
     
     [HttpPost]
     public async Task<Result<CreateUserResult>> CreateUserAsync(
         [FromBody] CreateUserCommand command) =>
-        await _mediator.Send(command);
+        await mediator.Send(command);
 }
